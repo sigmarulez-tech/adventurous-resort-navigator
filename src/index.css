@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
@@ -42,6 +41,7 @@
     @apply border-border;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    cursor: none;
   }
 
   body {
@@ -66,6 +66,12 @@
 
   ::selection {
     @apply bg-dandeli-green/20 text-dandeli-green;
+  }
+  
+  @media (max-width: 768px) {
+    * {
+      cursor: auto;
+    }
   }
 }
 
@@ -118,6 +124,7 @@
   transition: transform 0.2s ease-out;
   transform: translate(-50%, -50%);
   background: rgba(255, 255, 255, 0.8);
+  filter: blur(1px);
 }
 
 .custom-cursor.hover {
@@ -132,8 +139,56 @@
   border-radius: 50%;
   position: fixed;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 10000;
   mix-blend-mode: difference;
   transition: opacity 0.15s ease-in-out, transform 0.1s ease-out;
   transform: translate(-50%, -50%);
+}
+
+.cursor-liquid {
+  width: 200px;
+  height: 200px;
+  border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  background-color: rgba(45, 94, 76, 0.5);
+  mix-blend-mode: normal;
+  transition: transform 0.3s ease-out;
+  animation: liquid-morph 3s ease-in-out infinite;
+  filter: blur(20px);
+}
+
+.cursor-liquid-secondary {
+  width: 150px;
+  height: 150px;
+  background-color: rgba(91, 136, 165, 0.4);
+  animation: liquid-morph 4s ease-in-out infinite reverse;
+  animation-delay: -1s;
+}
+
+@keyframes liquid-morph {
+  0% {
+    border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%;
+  }
+  25% {
+    border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
+  }
+  50% {
+    border-radius: 40% 60% 30% 70% / 50% 60% 40% 60%;
+  }
+  75% {
+    border-radius: 30% 70% 70% 30% / 60% 40% 60% 40%;
+  }
+  100% {
+    border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .custom-cursor,
+  .cursor-dot,
+  .cursor-liquid {
+    display: none;
+  }
 }
