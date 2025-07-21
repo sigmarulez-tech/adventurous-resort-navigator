@@ -120,8 +120,8 @@ const Index = () => {
             </div>
             <div>
               <h3 className="text-xl font-bold mb-4">Contact Us</h3>
-              <p className="mb-2">Phone: +91 9876543210</p>
-              <p className="mb-2">Email: info@dandeliadventures.com</p>
+              <p className="mb-2">Phone: +91 8277385225</p>
+              <p className="mb-2">Email: dandeliadventuresoriginal@gmail.com</p>
             </div>
             <div>
               <h3 className="text-xl font-bold mb-4">Follow Us</h3>
